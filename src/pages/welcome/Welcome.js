@@ -1,13 +1,15 @@
 import React from "react";
-import { main } from "./Style";
+import { main, logo } from "./Style";
 import Grid from "@mui/material/Grid";
 import WhiteButton from "../../components/atoms/buttons/WhiteButton";
 import MainText from "../../components/atoms/text/MainText";
+import Logo from "../../components/resources/Logo.png";
 
 const Welcome = () => {
   return (
     <div style={main}>
       <Grid container justifyContent="center" alignItems="center">
+        <img style={logo} src={Logo} alt="the official logo" />
         <Grid item xs={10} justifyContent="center">
           <MainText
             text="Welcome To Trulif"
@@ -16,6 +18,7 @@ const Welcome = () => {
             weight="600"
           />
         </Grid>
+
         <Grid item xs={7.5} justifyContent="center" padding="10px 0px 30px">
           <MainText
             text="Making investing easier with non-custodial asset management on the blockchain"

@@ -1,3 +1,5 @@
+import Background from "../../components/resources/Background.png";
+
 export const main = {
   width: "100vw",
   height: "100vh",
@@ -5,11 +7,13 @@ export const main = {
   flexDirection: "column",
   justifyContent: "center",
   alignItems: "center",
-  background:
-    "linear-gradient(90deg,rgba(11, 163, 96, 0.5) 0%,rgba(60, 186, 146, 0.5) 100%)",
+  backgroundImage: `url(${Background})`,
+  backgroundSize: "cover",
+  backgroundRepeat: "no-repeat",
 };
 
-export const subText = {
-  textAlign: "center",
-  width: "350px",
+export const logo = {
+  width: "150px",
+  height: "150px",
+  margin: "20px 0px",
 };
