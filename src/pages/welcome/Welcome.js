@@ -1,5 +1,6 @@
 import React from "react";
-import { main, logo } from "./Style";
+import { Link } from "react-router-dom";
+import { main, logo, link } from "./Style";
 import Grid from "@mui/material/Grid";
 import WhiteButton from "../../components/atoms/buttons/WhiteButton";
 import MainText from "../../components/atoms/text/MainText";
@@ -26,11 +27,17 @@ const Welcome = () => {
             color="white"
           />
         </Grid>
+
         <Grid item xs={10} justifyContent="center" padding="20px 0px">
-          <WhiteButton text="Create a fund" />
+          <Link to="/" style={link}>
+            <WhiteButton text="Create a fund" />
+          </Link>
         </Grid>
+
         <Grid item xs={10} justifyContent="center">
-          <WhiteButton text="Invest in fund" />
+          <Link to="/Connect" style={link}>
+            <WhiteButton text="Invest in fund" />
+          </Link>
         </Grid>
       </Grid>
     </div>

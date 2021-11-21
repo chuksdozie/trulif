@@ -17,3 +17,7 @@ export const logo = {
   height: "150px",
   margin: "20px 0px",
 };
+
+export const link = {
+  textDecoration: "none",
+};
