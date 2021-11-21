@@ -1,7 +1,7 @@
 import React from "react";
 import MainText from "../../atoms/text/MainText";
 import graph from "../../resources/miniGraph.png";
-import { main, left, right, detailsCont, first, mini } from "./Style";
+import { main, left, right, detailsCont, first, last, mini } from "./Style";
 
 const BlockCard = () => {
   return (
@@ -30,7 +30,7 @@ const BlockCard = () => {
               color="#828282"
             />
           </div>
-          <div style={first}>
+          <div style={last}>
             <MainText text={"1.2m"} size="17px" weight="600" color="black" />
             <MainText
               text={"value managed"}

@@ -22,7 +22,15 @@ export const detailsCont = {
 };
 
 export const first = {
-  width: "45%",
+  width: "42%",
+  display: "flex",
+  flexDirection: "column",
+  alignItems: "flex-start",
+  justifyContent: "center",
+};
+
+export const last = {
+  width: "50%",
   display: "flex",
   flexDirection: "column",
   alignItems: "flex-start",
