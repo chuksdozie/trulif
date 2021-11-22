@@ -16,21 +16,21 @@ const Header = () => {
       </div>
 
       <div style={menuItem}>
-        <Link to="/" style={link}>
+        <Link to="/connect" style={link}>
           <RiBarChart2Line />
           Discover
         </Link>
       </div>
 
       <div style={menuItem}>
-        <Link to="/" style={link}>
+        <Link to="/connect" style={link}>
           <BsPerson />
           Profile
         </Link>
       </div>
 
       <div style={menuItem}>
-        <Link to="/" style={link}>
+        <Link to="/connect" style={link}>
           <BsChatText />
           Messages
         </Link>
