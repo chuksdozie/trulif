@@ -23,11 +23,16 @@ const BootstrapButton = styled(Button)({
 });
 
 const greenButton = (props) => {
-  const { text } = props;
+  const { text, onClick, disabled } = props;
   return (
     <div>
       <Grid>
-        <BootstrapButton variant="contained" fullWidth>
+        <BootstrapButton
+          variant="contained"
+          fullWidth
+          onClick={onClick}
+          disabled={disabled}
+        >
           {text}
         </BootstrapButton>
       </Grid>
