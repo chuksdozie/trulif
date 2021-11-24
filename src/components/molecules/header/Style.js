@@ -23,5 +23,5 @@ export const link = {
   justifyContent: "center",
   alignItems: "center",
   textDecoration: "none",
-  color: "#219653",
+  color: "#828282",
 };

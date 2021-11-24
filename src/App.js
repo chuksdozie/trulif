@@ -5,15 +5,18 @@ import Logo from "./components/resources/Logo.png";
 import Welcome from "./pages/welcome/Welcome";
 import Connect from "./pages/connect/Connect";
 import Purchase from "./pages/purchase/Purchase";
+import Message from "./pages/message/Message";
 
 function App() {
   return (
     <Router>
       <div className="App">
+        <Message />
         <Routes>
           <Route exact path="/" element={<Welcome />} />
           <Route exact path="/connect" element={<Connect />} />
           <Route exact path="/token" element={<Purchase />} />
+          <Route exact path="/messages" element={<Message />} />
         </Routes>
       </div>
       <div className="NotMobile">
