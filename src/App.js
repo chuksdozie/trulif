@@ -11,7 +11,6 @@ function App() {
   return (
     <Router>
       <div className="App">
-        <Message />
         <Routes>
           <Route exact path="/" element={<Welcome />} />
           <Route exact path="/connect" element={<Connect />} />
