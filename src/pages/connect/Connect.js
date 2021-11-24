@@ -109,32 +109,32 @@ const Connect = () => {
         </Grid>
 
         <Grid container item xs={11} margin="10px 0px">
-          <Link to="/" style={link}>
+          <Link to="/token" style={link}>
             <BlockCard />
           </Link>
         </Grid>
         <Grid container item xs={11} margin="10px 0px">
-          <Link to="/" style={link}>
+          <Link to="/token" style={link}>
             <BlockCard />
           </Link>
         </Grid>
         <Grid container item xs={11} margin="10px 0px">
-          <Link to="/" style={link}>
+          <Link to="/token" style={link}>
             <BlockCard />
           </Link>
         </Grid>
         <Grid container item xs={11} margin="10px 0px">
-          <Link to="/" style={link}>
+          <Link to="/token" style={link}>
             <BlockCard />
           </Link>
         </Grid>
         <Grid container item xs={11} margin="10px 0px">
-          <Link to="/" style={link}>
+          <Link to="/token" style={link}>
             <BlockCard />
           </Link>
         </Grid>
         <Grid container item xs={11} margin="10px 0px">
-          <Link to="/" style={link}>
+          <Link to="/token" style={link}>
             <BlockCard />
           </Link>
         </Grid>
