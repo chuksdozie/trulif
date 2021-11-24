@@ -30,7 +30,7 @@ const Header = () => {
       </div>
 
       <div style={menuItem}>
-        <Link to="/connect" style={link}>
+        <Link to="/messages" style={link}>
           <BsChatText />
           Messages
         </Link>
