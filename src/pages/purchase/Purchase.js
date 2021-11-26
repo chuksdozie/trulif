@@ -1,5 +1,5 @@
 import React, { useState, useContext } from "react";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import { AiOutlineClose } from "react-icons/ai";
 import { BsBackspace } from "react-icons/bs";
 import {
@@ -44,6 +44,7 @@ const Purchase = () => {
   const [summary, setSummary] = useState(false);
   const [btSecond, setBtSecond] = useState(false);
   const [initCongrats, setInitCongrats] = useState(false);
+  const navigate = useNavigate();
 
   const handleTokenPage = () => {
     setTokenPage(false);
@@ -85,11 +86,12 @@ const Purchase = () => {
     setInitCongrats(true);
     var interval = setInterval(function () {
       clearInterval(interval);
-      setTokenPage(true);
+      setTokenPage(false);
       setMainCont(false);
       setSummary(false);
       setBtSecond(false);
       setInitCongrats(false);
+      navigate("/portfolio");
     }, 5000);
   };
 
@@ -97,7 +99,7 @@ const Purchase = () => {
     if (amount !== 0) {
       let y = amount;
       let z = y * 10 + x;
-      if (z < 2501) {
+      if (z < 50000001) {
         setAmount(z);
       } else {
         setAmount(amount);
@@ -217,7 +219,7 @@ const Purchase = () => {
               text={`$${amount}`}
               color={amount === 0 ? "#828282" : "#27AE60"}
               weight="600"
-              size="96px"
+              size="75px"
             />
             <div style={{ width: "80vw", margin: "120px auto 0px" }}>
               <GreenButton text={"Submit"} onClick={() => handleBtSecond()} />
@@ -310,7 +312,7 @@ const Purchase = () => {
             text={`$${amount}`}
             color={amount === 0 ? "#828282" : "#27AE60"}
             weight="600"
-            size="96px"
+            size="75px"
           />
         </div>
         <div style={summaryBottom}>
@@ -407,7 +409,7 @@ const Purchase = () => {
           text={`$${amount}`}
           color={amount === 0 ? "#828282" : "#27AE60"}
           weight="600"
-          size="96px"
+          size="75px"
         />
         <div
           style={{ display: "flex", width: "70%", justifyContent: "center" }}
