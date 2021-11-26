@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useContext } from "react";
 import { Link } from "react-router-dom";
 import { AiOutlineClose } from "react-icons/ai";
 import { BsBackspace } from "react-icons/bs";
@@ -29,10 +29,15 @@ import GreenButton from "../../components/atoms/buttons/GreenButton";
 import WhiteButton from "../../components/atoms/buttons/WhiteButton";
 import Header from "../../components/molecules/header/Header";
 import Valora from "../../components/resources/icons/valoraLogo.png";
+import Graph from "../../components/resources/Chartgraph.png";
 import Avatar from "../../components/resources/icons/avatar.png";
 import Metamask from "../../components/resources/icons/metamaskLogo.png";
+import { DataContext } from "../../store/Context";
 
 const Purchase = () => {
+  // context starts here
+  const { selected } = useContext(DataContext);
+  // context ends here
   const [amount, setAmount] = useState(0);
   const [tokenPage, setTokenPage] = useState(true);
   const [mainCont, setMainCont] = useState(false);
@@ -112,7 +117,7 @@ const Purchase = () => {
       <div style={tokenPage ? tokenCont : { display: "none" }}>
         <div style={nameAvatar}>
           <MainText
-            text={`RedmondCo Bright`}
+            text={selected.name}
             color="#333333"
             weight="600"
             size="32px"
@@ -125,13 +130,15 @@ const Purchase = () => {
         </div>
         <div style={nameAvatar}>
           <MainText
-            text={`Managed by redmondco`}
+            text={`Managed by ${selected.managed_by}`}
             color="#333333"
             weight="normal"
             size="14px"
           />
         </div>
-        <div style={graph}>graph</div>
+        <div style={graph}>
+          <img style={{ width: "100%" }} src={Graph} alt="graph" />
+        </div>
         <div style={belowGraph}>
           <MainText
             text={`Asset Name`}
@@ -144,42 +151,30 @@ const Purchase = () => {
             <MainText text={`Amt`} color="#333333" weight="600" size="17px" />
           </div>
         </div>
-        <div style={belowGraph}>
-          <MainText text={`ETH`} color="#333333" weight="normal" size="17px" />
-          <div style={inBelowGraph}>
-            <MainText text={`50`} color="#333333" weight="normal" size="17px" />
+        {selected.assets.map((i, name) => (
+          <div style={belowGraph} key={name}>
             <MainText
-              text={`78.584`}
+              text={i.name}
               color="#333333"
               weight="normal"
               size="17px"
             />
+            <div style={inBelowGraph}>
+              <MainText
+                text={i.per}
+                color="#333333"
+                weight="normal"
+                size="17px"
+              />
+              <MainText
+                text={i.amount}
+                color="#333333"
+                weight="normal"
+                size="17px"
+              />
+            </div>
           </div>
-        </div>
-        <div style={belowGraph}>
-          <MainText text={`BTC`} color="#333333" weight="normal" size="17px" />
-          <div style={inBelowGraph}>
-            <MainText text={`20`} color="#333333" weight="normal" size="17px" />
-            <MainText
-              text={`30.455`}
-              color="#333333"
-              weight="normal"
-              size="17px"
-            />
-          </div>
-        </div>
-        <div style={belowGraph}>
-          <MainText text={`LTC`} color="#333333" weight="normal" size="17px" />
-          <div style={inBelowGraph}>
-            <MainText text={`30`} color="#333333" weight="normal" size="17px" />
-            <MainText
-              text={`164.22`}
-              color="#333333"
-              weight="normal"
-              size="17px"
-            />
-          </div>
-        </div>
+        ))}
 
         <div style={strategy}>
           <MainText
@@ -191,7 +186,7 @@ const Purchase = () => {
         </div>
         <div style={strategyInfo}>
           <MainText
-            text={`RedmondCo. first pool is named ‘Bright’. It is leveraging a momentum investment strategy successfully back tested over a three-years long timeframe.`}
+            text={selected.strategy}
             color="#333333"
             weight="normal"
             size="17px"
@@ -267,9 +262,9 @@ const Purchase = () => {
         </div>
         {/* bottom second div */}
         <div style={btSecond ? approvalCont : { display: "none" }}>
-          <img src={2 + 2 === 4 ? Valora : Metamask} alt="logo" />
+          <img src={selected.id % 2 === 1 ? Valora : Metamask} alt="logo" />
           <MainText
-            text={`valora`}
+            text={selected.id % 2 === 1 ? `valora` : `metamask`}
             color="#828282"
             weight="normal"
             size="17px"
@@ -283,15 +278,13 @@ const Purchase = () => {
             }}
           >
             <MainText
-              text={`Allow Trulif to spend ${amount} USDC?`}
+              text={`Allow Trulif to spend ${amount} cUSD?`}
               color="#333333"
               weight="600"
               size="18px"
             />
             <MainText
-              text={`A transaction fee of ${
-                amount / 100
-              } MATIC will be applied`}
+              text={`A transaction fee of $${amount / 10000} will be applied`}
               color="#828282"
               weight="400"
               size="14px"
@@ -342,7 +335,7 @@ const Purchase = () => {
               size="17px"
             />
             <MainText
-              text={`$${amount} USDC`}
+              text={`$${amount} cUSD`}
               color="#333333"
               weight="normal"
               size="17px"
@@ -363,7 +356,7 @@ const Purchase = () => {
               size="17px"
             />
             <MainText
-              text={`$${amount / 100} USDC`}
+              text={`$${amount / 100} cUSD`}
               color="#333333"
               weight="normal"
               size="17px"
@@ -377,7 +370,7 @@ const Purchase = () => {
               margin: "10px auto",
             }}
           >
-            <MainText
+            {/* <MainText
               text={`Tokens issued`}
               color="#333333"
               weight="normal"
@@ -388,7 +381,7 @@ const Purchase = () => {
               color="#333333"
               weight="normal"
               size="17px"
-            />
+            /> */}
           </div>
           <div
             style={{
@@ -421,7 +414,7 @@ const Purchase = () => {
         >
           <MainText
             text={`Congratulations!
-          You’re investing $${amount} USDC in RedmondCo Bright.`}
+          You’re investing $${amount} cUSD in ${selected.name}.`}
             color="#333333"
             weight="normal"
             size="17px"

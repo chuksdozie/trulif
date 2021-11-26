@@ -5,6 +5,7 @@ export const main = {
   backgroundColor: "#ffffff",
   borderRadius: "8px",
   boxShadow: "0px 2px 5px rgba(0, 0, 0, 0.12)",
+  margin: "7px auto",
 };
 
 export const left = {

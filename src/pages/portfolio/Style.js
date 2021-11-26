@@ -155,8 +155,20 @@ export const belowGraph = {
   margin: "5px 0",
 };
 
+export const belowGraphy = {
+  width: "90vw",
+  display: "flex",
+  justifyContent: "space-between",
+  alignItems: "center",
+  margin: "5px 0",
+  backgroundColor: "white",
+  padding: "10px",
+  borderRadius: "5px",
+  boxShadow: "0px 1px 4px rgba(0, 0, 0, 0.12)",
+};
+
 export const inBelowGraph = {
-  width: "30vw",
+  width: "40vw",
   display: "flex",
   justifyContent: "space-between",
   alignItems: "center",

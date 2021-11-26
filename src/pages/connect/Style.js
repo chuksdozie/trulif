@@ -4,6 +4,7 @@ export const main = {
   flexDirection: "column",
   alignItems: "flex-start",
   backgroundColor: "#f2f2f2",
+  padding: "1px 0 40px",
 };
 
 export const link = {
