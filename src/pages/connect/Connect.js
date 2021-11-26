@@ -87,7 +87,7 @@ const Connect = () => {
           justifyContent="center"
         >
           <div style={discover ? { display: "none" } : { width: "85%" }}>
-            <GreenButton text="Connect" onClick={() => handleWallet()} />
+            <GreenButton text="Connect wallet" onClick={() => handleWallet()} />
           </div>
         </Grid>
         <Grid
