@@ -87,11 +87,12 @@ const Connect = () => {
           justifyContent="center"
         >
           <div style={discover ? { display: "none" } : { width: "85%" }}>
-            <GreenButton text="Continue" onClick={() => handleWallet()} />
+            <GreenButton text="Connect" onClick={() => handleWallet()} />
           </div>
         </Grid>
         <Grid
           container
+          item
           xs={11}
           margin="40px 0px 10px"
           justifyContent="space-between"
@@ -109,32 +110,7 @@ const Connect = () => {
         </Grid>
 
         <Grid container item xs={11} margin="10px 0px">
-          <Link to="/token" style={link}>
-            <BlockCard />
-          </Link>
-        </Grid>
-        <Grid container item xs={11} margin="10px 0px">
-          <Link to="/token" style={link}>
-            <BlockCard />
-          </Link>
-        </Grid>
-        <Grid container item xs={11} margin="10px 0px">
-          <Link to="/token" style={link}>
-            <BlockCard />
-          </Link>
-        </Grid>
-        <Grid container item xs={11} margin="10px 0px">
-          <Link to="/token" style={link}>
-            <BlockCard />
-          </Link>
-        </Grid>
-        <Grid container item xs={11} margin="10px 0px">
-          <Link to="/token" style={link}>
-            <BlockCard />
-          </Link>
-        </Grid>
-        <Grid container item xs={11} margin="10px 0px">
-          <Link to="/token" style={link}>
+          <Link to={discover ? `/token` : `/connect`} style={link}>
             <BlockCard />
           </Link>
         </Grid>
@@ -192,7 +168,7 @@ const Connect = () => {
               />
             </div>
             <div style={{ width: "80%", margin: "20px auto" }}>
-              <GreenButton text={"Continue"} onClick={() => handleLoading()} />
+              <GreenButton text={"Connect"} onClick={() => handleLoading()} />
             </div>
           </div>
           {/* Wallet Loading */}
