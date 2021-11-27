@@ -305,7 +305,9 @@ const Purchase = () => {
               size="18px"
             />
             <MainText
-              text={`A transaction fee of $${amount / 10000} will be applied`}
+              text={`A transaction fee of ${
+                amount * 0.001
+              } cUSD will be applied`}
               color="#828282"
               weight="400"
               size="14px"
@@ -356,7 +358,7 @@ const Purchase = () => {
               size="17px"
             />
             <MainText
-              text={`$${amount} cUSD`}
+              text={`${amount} cUSD`}
               color="#333333"
               weight="normal"
               size="17px"
@@ -377,7 +379,7 @@ const Purchase = () => {
               size="17px"
             />
             <MainText
-              text={`$${amount / 100} cUSD`}
+              text={`${amount * 0.001} cUSD`}
               color="#333333"
               weight="normal"
               size="17px"
@@ -435,7 +437,7 @@ const Purchase = () => {
         >
           <MainText
             text={`Congratulations!
-          You’re investing $${amount} cUSD in ${selected.name}.`}
+          You have invested $${amount} cUSD in ${selected.name}.`}
             color="#333333"
             weight="normal"
             size="17px"

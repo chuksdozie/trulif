@@ -16,33 +16,33 @@ function App() {
   const [purchase, setPurchase] = useState([
     {
       name: "Momentum",
-      ROI: "+74%",
-      amount: "1,200,000",
+      ROI: "69%",
+      amount: "5,400",
     },
     {
       name: "Ubeswap Eco",
-      ROI: "+26%",
-      amount: "300,000",
+      ROI: "17%",
+      amount: "8,500",
     },
     {
       name: "Bull Flag",
-      ROI: "+86%",
-      amount: "1,400,000",
+      ROI: "14%",
+      amount: "2,500",
     },
     {
       name: "Ride the Bull",
-      ROI: "+165%",
-      amount: "2,500,000",
+      ROI: "65%",
+      amount: "7,800",
     },
     {
       name: "Layer 1",
-      ROI: "+7%",
-      amount: "4,700,000",
+      ROI: "17%",
+      amount: "3,200",
     },
     {
       name: "Lower Volatility",
-      ROI: "+45%",
-      amount: "600,000",
+      ROI: "5%",
+      amount: "1,650",
     },
   ]);
   const providerValue = useMemo(
