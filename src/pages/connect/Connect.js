@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useContext } from "react";
 import { Link } from "react-router-dom";
 import {
   main,
@@ -10,6 +10,7 @@ import {
   walletContainer,
 } from "./Style";
 import Grid from "@mui/material/Grid";
+import { TokenContext } from "../../store/Context";
 import MainText from "../../components/atoms/text/MainText";
 import Header from "../../components/molecules/header/Header";
 import BlockCard from "../../components/molecules/blockCard/BlockCard";
@@ -21,6 +22,8 @@ import TrulifLoader from "../../components/resources/icons/trulifLoader.gif";
 import Success from "../../components/resources/sucessLogo.png";
 
 const Connect = () => {
+  const { setMyToken } = useContext(TokenContext);
+
   const [showModal, setShowModal] = useState(false);
   const [chooseWallet, setChooseWallet] = useState(false);
   const [confirmWallet, setConfirmWallet] = useState(false);
@@ -37,15 +40,18 @@ const Connect = () => {
     setShowComplete(false);
   };
 
-  const handleConfirm = () => {
+  const handleMeta = () => {
+    setMeta(true);
+    setMyToken("meta");
     setChooseWallet(false);
     setConfirmWallet(true);
     setLoadingWallet(false);
     setShowComplete(false);
   };
 
-  const handleMeta = () => {
-    setMeta(true);
+  const handleValora = () => {
+    setMeta(false);
+    setMyToken("valora");
     setChooseWallet(false);
     setConfirmWallet(true);
     setLoadingWallet(false);
@@ -126,7 +132,7 @@ const Connect = () => {
               <img style={{ marginRight: "15px" }} src={Meta} alt="meta logo" />
               <MainText text={"Meta Mask"} size="17px" color="#333333" />
             </div>
-            <div style={walletOptions} onClick={() => handleConfirm()}>
+            <div style={walletOptions} onClick={() => handleValora()}>
               <img
                 style={{ marginRight: "15px" }}
                 src={Valora}

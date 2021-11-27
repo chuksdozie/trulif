@@ -124,6 +124,7 @@ export const congrats = {
 export const tokenCont = {
   width: "100vw",
   height: "100%",
+  minHeight: "100vh",
   display: "flex",
   flexDirection: "column",
   alignItems: "center",
@@ -152,7 +153,7 @@ export const belowGraph = {
   display: "flex",
   justifyContent: "space-between",
   alignItems: "center",
-  margin: "5px 0",
+  margin: "45px 0 5px",
 };
 
 export const belowGraphy = {

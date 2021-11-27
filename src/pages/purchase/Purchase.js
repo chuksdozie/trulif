@@ -32,11 +32,17 @@ import Valora from "../../components/resources/icons/valoraLogo.png";
 import Graph from "../../components/resources/Chartgraph.png";
 import Avatar from "../../components/resources/icons/avatar.png";
 import Metamask from "../../components/resources/icons/metamaskLogo.png";
-import { DataContext } from "../../store/Context";
+import {
+  DataContext,
+  PurchaseContext,
+  TokenContext,
+} from "../../store/Context";
 
 const Purchase = () => {
   // context starts here
   const { selected } = useContext(DataContext);
+  const { purchase, setPurchase } = useContext(PurchaseContext);
+  const { myToken } = useContext(TokenContext);
   // context ends here
   const [amount, setAmount] = useState(0);
   const [tokenPage, setTokenPage] = useState(true);
@@ -84,6 +90,7 @@ const Purchase = () => {
     setSummary(false);
     setBtSecond(false);
     setInitCongrats(true);
+    updatePorfolio();
     var interval = setInterval(function () {
       clearInterval(interval);
       setTokenPage(false);
@@ -91,8 +98,20 @@ const Purchase = () => {
       setSummary(false);
       setBtSecond(false);
       setInitCongrats(false);
+      setAmount(0);
       navigate("/portfolio");
     }, 5000);
+  };
+
+  const updatePorfolio = () => {
+    // console.log(purchase);
+    for (var i = 0; i < purchase.length; i++) {
+      if (purchase[i].name === selected.name) {
+        purchase.splice(i, 1);
+        purchase.unshift({ name: selected.name, ROI: "0%", amount: amount });
+      }
+      setPurchase(purchase);
+    }
   };
 
   const assign = (x) => {
@@ -264,9 +283,9 @@ const Purchase = () => {
         </div>
         {/* bottom second div */}
         <div style={btSecond ? approvalCont : { display: "none" }}>
-          <img src={selected.id % 2 === 1 ? Valora : Metamask} alt="logo" />
+          <img src={myToken !== "meta" ? Valora : Metamask} alt="logo" />
           <MainText
-            text={selected.id % 2 === 1 ? `valora` : `metamask`}
+            text={myToken !== "meta" ? `valora` : `metamask`}
             color="#828282"
             weight="normal"
             size="17px"
